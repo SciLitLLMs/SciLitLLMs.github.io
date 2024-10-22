@@ -97,20 +97,6 @@
                 <span class="paper-block"><b></b></span><br>
                 <span class="paper-block"><b>In submission. To appear at Foundation Models for Science Workshop, NeurIPS 2024</b></span>
               </div>
-              
-              <!-- <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div> -->
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
@@ -124,17 +110,6 @@
                         <span>Paper</span>
                       </a>
                     </span>
-
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
 
                   <!-- Github link -->
                   <span class="link-block">
@@ -187,47 +162,12 @@
     <div class="content has-text-centered">
       <img src="static/images/performance_plot.png" alt="Performance comparison" width="80%"/>
       <p> 
-        Performance of <b>SciLitLLM</b> on scientific literature understanding benchmarks, comparing model sizes and parameters. SciLitLLMs outperform Llama3.1 and Qwen2.5 models with similar scales.
+        Performance of <b>SciLitLLMs</b> on scientific literature understanding benchmarks. SciLitLLMs outperform Llama3.1 and Qwen2.5 models with similar scales.
       </p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
-        <div class="content has-text-justified">
-          <p>
-            Understanding scientific literature is crucial for extracting information that drives discovery. Despite the success of general-purpose large language models (LLMs), they struggle with scientific texts due to their unfamiliarity with domain-specific tasks and knowledge. To bridge this gap, we introduce <b>SciLitLLM</b>, a framework that combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance both the domain knowledge and instruction-following capabilities of LLMs for scientific literature understanding.
-          </p>
-          <img src="figures/intro.png" alt="Framework" class="interpolation-image"/>
-          <p>
-            Our contributions include a new scientific instruction dataset, <b>SciLitIns</b>, and a hybrid strategy for adapting LLMs to specialized tasks. The proposed SciLitLLM demonstrates superior performance, achieving significant improvements, including a 10.1% performance boost on SciRIFF benchmarks.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Scientific Knowledge Injection</h2>
-        <div class="content has-text-justified">
-          <p>
-            To inject domain knowledge, we continually pre-train on a high-quality scientific corpus. This step ensures that the model can comprehend complex scientific concepts and terminologies. Our CPT stage utilized over 73,000 textbooks and 625,000 research papers, providing a strong foundation for the model’s understanding of scientific texts.
-          </p>
-          <img src="figures/knowledge_injection.png" alt="Knowledge Injection" width="80%"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -236,7 +176,7 @@
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            Understanding scientific literature is crucial for extracting information that drives discovery. Despite the success of general-purpose large language models (LLMs), they struggle with scientific texts due to their unfamiliarity with domain-specific tasks and knowledge. To bridge this gap, we introduce <b>SciLitLLM</b>, a framework that combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance both the domain knowledge and instruction-following capabilities of LLMs for scientific literature understanding.
+            Understanding scientific literature is crucial for extracting information that drives discovery. Despite the success of general-purpose large language models (LLMs), they struggle with scientific texts due to their unfamiliarity with domain-specific tasks and knowledge. To bridge this gap, we introduce <b>SciLitLLM</b>, a framework that combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance both the domain knowledge and instruction-following capabilities of LLMs for scientific literature understanding. Below is an example of scientific literature understanding in SciRIFF:
           </p>
           <img src="static/images/sci_lit_analysis_v3.png" alt="Problem Setup" class="interpolation-image"/>
           <p>
@@ -257,7 +197,7 @@
           <p>
             To inject domain knowledge, we continually pre-train on a high-quality scientific corpus. This step ensures that the model can comprehend complex scientific concepts and terminologies. Our CPT stage utilized over 73,000 textbooks and 625,000 research papers, providing a strong foundation for the model’s understanding of scientific texts.
           </p>
-          <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework" width="80%"/>
+          <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework"/>
         </div>
       </div>
     </div>
@@ -268,7 +208,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content has-text-centered">
-      <img src="static/images/evaluation.png" alt="Performance comparison" width="80%"/>
+      <img src="static/images/evaluation.png" alt="Performance comparison"/>
       <p> 
         Performance of <b>SciLitLLM</b> on scientific literature understanding benchmarks, comparing model sizes and parameters. The framework outperforms Llama3.1 and Qwen2.5 models with similar scales, particularly excelling in diverse scientific tasks such as entity extraction and molecule generation.
       </p>
