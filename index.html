@@ -25,7 +25,7 @@
 
 
   <title>SciLitLLM: How to Adapt LLMs for Scientific Literature Understanding?</title>
-  <link rel="icon" type="image/png" href="static/images/Iconoir-Team-Iconoir-Microscope.512.png">
+  <link rel="icon" href="static/images/Microscope.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -162,13 +162,13 @@
         <div class="content has-text-justified">
           <ul>
             <li>
-              We devise a comprehensive pipeline to adapt general LLMs to a specific domain – scientific literature understanding. It combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance scientific knowledge base and instruction-following capabilities for specialized domain tasks.
+              We devise <b>a pipeline to adapt general LLMs to scientific literature understanding</b>. It combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance scientific knowledge base and instruction-following capabilities for specialized domain tasks.
             </li>
             <li>
-              We propose a novel domain instruction synthesis method to curate instructions for scientific literature understanding, resulting in a new dataset – SciLitIns.
+              We propose <b>a novel domain instruction synthesis method</b> to curate instructions for scientific literature understanding, resulting in a new dataset - <b>SciLitIns</b>.
             </li>
             <li>
-              SciLitLLM, trained through the proposed pipeline, outperforms leading open-source LLMs on scientific literature understanding.
+              <b>SciLitLLM</b>, trained through the proposed pipeline, outperforms leading open-source LLMs on scientific literature understanding.
             </li>
           </ul>
         </div>
@@ -186,7 +186,7 @@
         <h2 class="title is-3">Performance Overview</h2>
         <div class="content has-text-justified">
           <div class="content has-text-centered">
-            <img src="static/images/performance_plot.png" alt="Performance comparison" width="70%"/>
+            <img src="static/images/performance_plot.png" alt="Performance comparison" width="90%"/>
             <p> 
               Performance of <b>SciLitLLM</b> on scientific literature understanding benchmarks. SciLitLLM outperforms Llama3.1 and Qwen2.5 models with similar scales.
             </p>
@@ -216,22 +216,11 @@
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            Understanding scientific literature is crucial for extracting information that drives discovery. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
+            Scientific literature understanding involves the systematic evaluation and interpretation of sci- entific texts and publications, to identify trends, extract targeted information, and garner insights. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
           </p>
           <p>
-            To address this gap, we introduce <b>SciLitLLM</b>, a framework combining <b>Continual Pre-Training (CPT)</b> and <b>Supervised Fine-Tuning (SFT)</b>. This enhances the model's domain knowledge and instruction-following abilities specifically for scientific literature understanding.
-          </p>
-          <p>
-            Our contributions include:
-            <ul>
-              <li>A novel scientific instruction dataset, <b>SciLitIns</b>.</li>
-              <li>A hybrid strategy for adapting LLMs to specialized tasks.</li>
-              <li>A performance increase of <b>10.1%</b> on SciRIFF benchmarks compared to baseline models.</li>
-            </ul>
-          </p>
-          <p>
-            <b>Example of Scientific Literature Understanding in SciRIFF:</b>
-          </p>
+            Below is an example of scientific literature understanding in <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>. The LLM is asked to understand the content of a biomedical research paper and then extract the targeted information. LLMs' potential might be hindered by two major barriers: (1) a lack of scientific knowledge, which results in errors such as the missing important entities in Llama-3.1-8B, and (2) unfamiliarity with scientific tasks, leading to the inability of Galactica-6.7B to follow task instructions accurately.
+          </p>          
           <div class="content has-text-centered">
             <img src="static/images/sci_lit_analysis_v3.png" alt="Problem Setup" class="interpolation-image"/>
           </div>
@@ -241,42 +230,6 @@
   </div>
 </section>
 
-
-<!-- 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
-        <div class="content has-text-justified">
-          <p>
-            Understanding scientific literature is crucial for extracting information that drives discovery. Despite the success of general-purpose large language models (LLMs), they struggle with scientific texts due to their unfamiliarity with domain-specific tasks and knowledge. To bridge this gap, we introduce <b>SciLitLLM</b>, a framework that combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance both the domain knowledge and instruction-following capabilities of LLMs for scientific literature understanding. Below is an example of scientific literature understanding in SciRIFF:
-          </p>
-          <img src="static/images/sci_lit_analysis_v3.png" alt="Problem Setup" class="interpolation-image"/>
-          <p>
-            Our contributions include a new scientific instruction dataset, <b>SciLitIns</b>, and a hybrid strategy for adapting LLMs to specialized tasks. The proposed SciLitLLM demonstrates superior performance, achieving significant improvements, including a 10.1% performance boost on SciRIFF benchmarks.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Scientific Knowledge Injection</h2>
-        <div class="content has-text-justified">
-          <p>
-            To inject domain knowledge, we continually pre-train on a high-quality scientific corpus. This step ensures that the model can comprehend complex scientific concepts and terminologies. Our CPT stage utilized over 73,000 textbooks and 625,000 research papers, providing a strong foundation for the model’s understanding of scientific texts.
-          </p>
-          <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -306,7 +259,7 @@
         <h2 class="title is-3">Evaluation Results</h2>
         <div class="content has-text-justified">
           <div class="content has-text-centered">
-            <img src="static/images/evaluation.png" alt="Performance comparison" width="80%"/>
+            <img src="static/images/evaluation.png" alt="Performance comparison"/>
             <p> 
               SciLitLLM consistently outperforms Llama3.1 and Qwen2.5 models with similar parameters, especially excelling in diverse scientific tasks such as entity extraction and molecule generation.
             </p>
