@@ -197,18 +197,6 @@
   </div>
 </section>
 
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="content has-text-centered">
-      <img src="static/images/performance_plot.png" alt="Performance comparison" width="70%"/>
-      <p> 
-        Performance of <b>SciLitLLMs</b> on scientific literature understanding benchmarks. SciLitLLMs outperform Llama3.1 and Qwen2.5 models with similar scales.
-      </p>
-    </div>
-  </div>
-</section> -->
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -216,10 +204,18 @@
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            Scientific literature understanding involves the systematic evaluation and interpretation of sci- entific texts and publications, to identify trends, extract targeted information, and garner insights. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
+            Scientific literature understanding involves the systematic evaluation and interpretation of scientific texts and publications, to identify trends, extract targeted information, and garner insights. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
           </p>
           <p>
-            Below is an example of scientific literature understanding in <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>. The LLM is asked to understand the content of a biomedical research paper and then extract the targeted information. LLMs' potential might be hindered by two major barriers: (1) a lack of scientific knowledge, which results in errors such as the missing important entities in Llama-3.1-8B, and (2) unfamiliarity with scientific tasks, leading to the inability of Galactica-6.7B to follow task instructions accurately.
+            Below is an example of scientific literature understanding in <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>. The LLM is asked to understand the content of a biomedical research paper and then extract the targeted information. LLMs' potential might be hindered by two major barriers: 
+            <ul>
+              <li>
+                A lack of <b>scientific knowledge</b>, which results in errors such as the missing important entities in Llama-3.1-8B.
+              </li>
+              <li>
+                Unfamiliarity with <b>scientific tasks</b>, leading to the inability of Galactica-6.7B to follow task instructions accurately.
+              </li>
+            </ul>
           </p>          
           <div class="content has-text-centered">
             <img src="static/images/sci_lit_analysis_v3.png" alt="Problem Setup" class="interpolation-image"/>
@@ -238,19 +234,28 @@
         <h2 class="title is-3">Scientific Knowledge Injection</h2>
         <div class="content has-text-justified">
           <p>
-            To inject domain-specific knowledge, SciLitLLM undergoes continual pre-training on a high-quality scientific corpus. This stage is crucial for building a strong understanding of complex scientific concepts and specialized terminologies.
+            SciLitLLM utilizes a two-step pipeline for enhancing domain-specific knowledge in large language models, combining Continual Pre-Training (CPT) and Supervised Fine-Tuning (SFT).
           </p>
-          <p>
-            <b>Training Data</b>: Over 73,000 textbooks and 625,000 research papers were used in the CPT phase, providing a comprehensive foundation for scientific comprehension.
-          </p>
+          <ul>
+            <li>
+              <b>Continual Pre-Training (CPT)</b>: This step focuses on injecting domain-specific knowledge by pre-training on a curated scientific corpus. Over 73,000 textbooks and 625,000 research papers were processed and filtered to ensure high-quality data. Text extraction, grammar correction, and data quality filtering are crucial parts of this stage to prepare a robust training set for building the model's scientific foundation.
+            </li>
+            <li>
+              <b>Supervised Fine-Tuning (SFT)</b>: To fine-tune the model's instruction-following abilities, a novel set of scientific instructions called <b>SciLitIns</b> was created. This dataset encompasses diverse scientific tasks, guiding the model in understanding and executing complex scientific commands. This step includes filtering low-quality instructions and leveraging synthetic generation for diverse task coverage.
+            </li>
+          </ul>
           <div class="content has-text-centered">
             <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework"/>
           </div>
+          <p>
+            The combination of CPT and SFT enhances SciLitLLM's ability to understand and process specialized scientific literature effectively, resulting in a model that outperforms general-purpose LLMs in domain-specific benchmarks.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -268,7 +273,7 @@
             <b>Key Observations:</b>
             <ul>
               <li>Training on a specialized dataset with SciLitLLM provides a competitive edge in handling complex scientific tasks.</li>
-              <li>SciLitLLM’s focus on domain-specific knowledge significantly boosts performance compared to general-purpose LLMs of similar scales.</li>
+              <li>SciLitLLM's focus on domain-specific knowledge significantly boosts performance compared to general-purpose LLMs of similar scales.</li>
             </ul>
           </p>
         </div>
@@ -330,9 +335,20 @@
 
 <!-- Statcounter tracking code -->
   
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<!-- Default Statcounter code for SciLitLLMs https://scilitllms.github.io -->
+<script type="text/javascript">
+  var sc_project=13049407; 
+  var sc_invisible=1; 
+  var sc_security="6f2045b1"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/13049407/0/6f2045b1/1/" alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
-    <!-- End of Statcounter Code -->
+  <!-- End of Statcounter Code -->
 
   </body>
   </html>
