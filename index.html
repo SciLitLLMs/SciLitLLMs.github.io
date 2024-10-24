@@ -154,10 +154,51 @@
 
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              We devise a comprehensive pipeline to adapt general LLMs to a specific domain – scientific literature understanding. It combines continual pre-training (CPT) and supervised fine-tuning (SFT) to enhance scientific knowledge base and instruction-following capabilities for specialized domain tasks.
+            </li>
+            <li>
+              We propose a novel domain instruction synthesis method to curate instructions for scientific literature understanding, resulting in a new dataset – SciLitIns.
+            </li>
+            <li>
+              SciLitLLM, trained through the proposed pipeline, outperforms leading open-source LLMs on scientific literature understanding.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
 <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Performance Overview</h2>
+        <div class="content has-text-justified">
+          <div class="content has-text-centered">
+            <img src="static/images/performance_plot.png" alt="Performance comparison" width="70%"/>
+            <p> 
+              Performance of <b>SciLitLLM</b> on scientific literature understanding benchmarks. SciLitLLM outperforms Llama3.1 and Qwen2.5 models with similar scales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="content has-text-centered">
       <img src="static/images/performance_plot.png" alt="Performance comparison" width="70%"/>
@@ -166,9 +207,42 @@
       </p>
     </div>
   </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Understanding scientific literature is crucial for extracting information that drives discovery. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
+          </p>
+          <p>
+            To address this gap, we introduce <b>SciLitLLM</b>, a framework combining <b>Continual Pre-Training (CPT)</b> and <b>Supervised Fine-Tuning (SFT)</b>. This enhances the model's domain knowledge and instruction-following abilities specifically for scientific literature understanding.
+          </p>
+          <p>
+            Our contributions include:
+            <ul>
+              <li>A novel scientific instruction dataset, <b>SciLitIns</b>.</li>
+              <li>A hybrid strategy for adapting LLMs to specialized tasks.</li>
+              <li>A performance increase of <b>10.1%</b> on SciRIFF benchmarks compared to baseline models.</li>
+            </ul>
+          </p>
+          <p>
+            <b>Example of Scientific Literature Understanding in SciRIFF:</b>
+          </p>
+          <div class="content has-text-centered">
+            <img src="static/images/sci_lit_analysis_v3.png" alt="Problem Setup" class="interpolation-image"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
+<!-- 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -186,9 +260,9 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -202,10 +276,56 @@
       </div>
     </div>
   </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Scientific Knowledge Injection</h2>
+        <div class="content has-text-justified">
+          <p>
+            To inject domain-specific knowledge, SciLitLLM undergoes continual pre-training on a high-quality scientific corpus. This stage is crucial for building a strong understanding of complex scientific concepts and specialized terminologies.
+          </p>
+          <p>
+            <b>Training Data</b>: Over 73,000 textbooks and 625,000 research papers were used in the CPT phase, providing a comprehensive foundation for scientific comprehension.
+          </p>
+          <div class="content has-text-centered">
+            <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Evaluation Results</h2>
+        <div class="content has-text-justified">
+          <div class="content has-text-centered">
+            <img src="static/images/evaluation.png" alt="Performance comparison" width="80%"/>
+            <p> 
+              SciLitLLM consistently outperforms Llama3.1 and Qwen2.5 models with similar parameters, especially excelling in diverse scientific tasks such as entity extraction and molecule generation.
+            </p>
+          </div>
+          <p>
+            <b>Key Observations:</b>
+            <ul>
+              <li>Training on a specialized dataset with SciLitLLM provides a competitive edge in handling complex scientific tasks.</li>
+              <li>SciLitLLM’s focus on domain-specific knowledge significantly boosts performance compared to general-purpose LLMs of similar scales.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="content has-text-centered">
       <img src="static/images/evaluation.png" alt="Performance comparison" width="80%"/>
@@ -214,7 +334,7 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
@@ -223,11 +343,14 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{li2024scilitllm,
-  title={SciLitLLM: How to Adapt LLMs for Scientific Literature Understanding},
-  author={Li, Sihang and Huang, Jian and Zhuang, Jiaxi and Shi, Yaorui and Cai, Xiaochen and Xu, Mingjun and Wang, Xiang and Zhang, Linfeng and Ke, Guolin and Cai, Hengxing},
-  journal={arXiv preprint arXiv:2408.15545},
-  year={2024}
+      <pre><code>@misc{li2024scilitllmadaptllmsscientific,
+    title={SciLitLLM: How to Adapt LLMs for Scientific Literature Understanding}, 
+    author={Sihang Li and Jin Huang and Jiaxi Zhuang and Yaorui Shi and Xiaochen Cai and Mingjun Xu and Xiang Wang and Linfeng Zhang and Guolin Ke and Hengxing Cai},
+    year={2024},
+    eprint={2408.15545},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG},
+    url={https://arxiv.org/abs/2408.15545}, 
 }</code></pre>
     </div>
 </section>
