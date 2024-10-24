@@ -204,16 +204,16 @@
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            Scientific literature understanding involves the systematic evaluation and interpretation of scientific texts and publications, to identify trends, extract targeted information, and garner insights. General-purpose LLMs often struggle with scientific texts due to their lack of domain-specific knowledge and task familiarity.
+            <b>Scientific literature understanding</b> involves the systematic evaluation and interpretation of scientific texts and publications, to identify trends and extract targeted information.
           </p>
           <p>
-            Below is an example of scientific literature understanding in <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>. The LLM is asked to understand the content of a biomedical research paper and then extract the targeted information. LLMs' potential might be hindered by two major barriers: 
+            Below is an example in <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>. The LLM is asked to understand the content of a biomedical research paper and then extract the targeted information. LLMs' potential might be hindered by two major barriers: 
             <ul>
               <li>
-                A lack of <b>scientific knowledge</b>, which results in errors such as the missing important entities in Llama-3.1-8B.
+                Unfamiliarity with <b>scientific tasks</b>, leading to the inability of Galactica-6.7B to follow task instructions accurately.
               </li>
               <li>
-                Unfamiliarity with <b>scientific tasks</b>, leading to the inability of Galactica-6.7B to follow task instructions accurately.
+                A lack of <b>scientific knowledge</b>, which results in errors such as the missing important entities in Llama-3.1-8B.
               </li>
             </ul>
           </p>          
@@ -231,25 +231,25 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Scientific Knowledge Injection</h2>
+        <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            SciLitLLM utilizes a two-step pipeline for enhancing domain-specific knowledge in large language models, combining Continual Pre-Training (CPT) and Supervised Fine-Tuning (SFT).
+            SciLitLLM utilizes a <b>two-step pipeline</b> for enhancing domain-specific knowledge in LLMs.
           </p>
           <ul>
             <li>
-              <b>Continual Pre-Training (CPT)</b>: This step focuses on injecting domain-specific knowledge by pre-training on a curated scientific corpus. Over 73,000 textbooks and 625,000 research papers were processed and filtered to ensure high-quality data. Text extraction, grammar correction, and data quality filtering are crucial parts of this stage to prepare a robust training set for building the model's scientific foundation.
+              Continual Pre-Training (CPT): This step focuses on injecting domain-specific knowledge by pre-training on a curated scientific corpus. Over 73,000 textbooks and 625,000 research papers were processed and filtered to ensure high-quality data.
             </li>
             <li>
-              <b>Supervised Fine-Tuning (SFT)</b>: To fine-tune the model's instruction-following abilities, a novel set of scientific instructions called <b>SciLitIns</b> was created. This dataset encompasses diverse scientific tasks, guiding the model in understanding and executing complex scientific commands. This step includes filtering low-quality instructions and leveraging synthetic generation for diverse task coverage.
+              Supervised Fine-Tuning (SFT): To fine-tune the model's instruction-following abilities, a novel set of scientific instructions called <b>SciLitIns</b> was created. This dataset encompasses diverse scientific tasks, guiding the model in understanding and executing complex scientific tasks.
             </li>
           </ul>
           <div class="content has-text-centered">
             <img src="static/images/SciLLM-Framework_v5.png" alt="SciLitLLM Framework"/>
           </div>
-          <p>
+          <!-- <p>
             The combination of CPT and SFT enhances SciLitLLM's ability to understand and process specialized scientific literature effectively, resulting in a model that outperforms general-purpose LLMs in domain-specific benchmarks.
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -266,14 +266,15 @@
           <div class="content has-text-centered">
             <img src="static/images/evaluation.png" alt="Performance comparison"/>
             <p> 
-              SciLitLLM consistently outperforms Llama3.1 and Qwen2.5 models with similar parameters, especially excelling in diverse scientific tasks such as entity extraction and molecule generation.
+              Model performances on scientific literature understanding benchmarks: SciAssess and SciRIFF.
             </p>
           </div>
           <p>
             <b>Key Observations:</b>
             <ul>
-              <li>Training on a specialized dataset with SciLitLLM provides a competitive edge in handling complex scientific tasks.</li>
-              <li>SciLitLLM's focus on domain-specific knowledge significantly boosts performance compared to general-purpose LLMs of similar scales.</li>
+              
+              <li>SciLitLLM-7B-Instruct achieves the highest performance in all 4 domains on SciAssess, outperforming the second-best model by 4.0%. On SciRIFF, it surpasses baseline models by a substantial margin of 10.1%</li>
+              <li>SciLitLLM-14B-Instruct shows a 4.6% and 7.5% performance improvement over Qwen2-14B-Instruct on SciAssess and SciRIFF, respectively. <b>It even outperforms other open-source models with five times more parameters.</b> </li>
             </ul>
           </p>
         </div>
@@ -283,21 +284,47 @@
 </section>
 
 
-<!-- <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="content has-text-centered">
-      <img src="static/images/evaluation.png" alt="Performance comparison" width="80%"/>
-      <p> 
-        Performance of <b>SciLitLLM</b> on scientific literature understanding benchmarks, comparing model sizes and parameters. The framework outperforms Llama3.1 and Qwen2.5 models with similar scales, particularly excelling in diverse scientific tasks such as entity extraction and molecule generation.
-      </p>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Ablation Study</h2>
+        <div class="content has-text-justified">
+          <p>
+            To assess the contribution of each component in the SciLitLLM pipeline, we conducted a comprehensive ablation study. The study evaluated the effects of different training configurations on performance metrics for scientific literature understanding.
+          </p>
+          <ul>
+            <li>
+              <b>Effect of Continual Pre-Training (CPT)</b>: Removing the CPT stage resulted in a significant drop in domain-specific performance, highlighting the importance of domain-specific knowledge injection. The model trained without CPT struggled with specialized terminologies and complex scientific structures.
+            </li>
+            <li>
+              <b>Impact of Instruction Dataset Quality</b>: Using a filtered, high-quality SciLitIns dataset improved model accuracy by 8.7%. In contrast, models trained with low-quality or unfiltered instructions exhibited difficulties in following precise scientific commands.
+            </li>
+            <li>
+              <b>Influence of Data Volume</b>: Reducing the size of the training corpus by 50% during CPT led to a noticeable decrease in performance, demonstrating that a diverse and extensive scientific corpus is crucial for robust comprehension of domain-specific content.
+            </li>
+          </ul>
+          <p>
+            The ablation study confirms that both the CPT and SFT stages are vital for SciLitLLM’s performance, with each component contributing significantly to the model’s capability to handle scientific tasks effectively.
+          </p>
+          <div class="content has-text-centered">
+            <img src="static/images/ablation_study.png" alt="Ablation Study Results" width="80%"/>
+            <p>
+              Results of the ablation study showcasing the performance drop when each component is removed or altered.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</section> -->
+</section>
+
 
 
 
 
 <!--BibTex citation -->
+Blog Author: Jin Huang.
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
