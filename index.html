@@ -266,7 +266,7 @@
           <div class="content has-text-centered">
             <img src="static/images/evaluation.png" alt="Performance comparison"/>
             <p> 
-              Model performances on scientific literature understanding benchmarks: SciAssess and SciRIFF.
+              Model performances on scientific literature understanding benchmarks: <a href="https://arxiv.org/abs/2403.01976" target="_blank">SciAssess</a> and <a href="https://arxiv.org/abs/2406.07835" target="_blank">SciRIFF</a>.
             </p>
           </div>
           <p>
@@ -291,28 +291,31 @@
         <h2 class="title is-3">Ablation Study</h2>
         <div class="content has-text-justified">
           <p>
-            To assess the contribution of each component in the SciLitLLM pipeline, we conducted a comprehensive ablation study. The study evaluated the effects of different training configurations on performance metrics for scientific literature understanding.
+            To assess the contribution of each component in the SciLitLLM pipeline, we conducted a comprehensive ablation study.
           </p>
           <ul>
             <li>
-              <b>Effect of Continual Pre-Training (CPT)</b>: Removing the CPT stage resulted in a significant drop in domain-specific performance, highlighting the importance of domain-specific knowledge injection. The model trained without CPT struggled with specialized terminologies and complex scientific structures.
+              <b>Effect of Continual Pre-Training</b>: Removing the CPT stage resulted in a significant drop in domain-specific performance. The results shows that the CPT stage is essential to improve scientific literature understanding ability.
+              <div class="content has-text-centered">
+                <img src="static/images/ablation1.png" alt="Effect of CPT Removal" width="80%"/>
+                <p>Impact of removing the CPT stage on performance.</p>
+              </div>
             </li>
             <li>
-              <b>Impact of Instruction Dataset Quality</b>: Using a filtered, high-quality SciLitIns dataset improved model accuracy by 8.7%. In contrast, models trained with low-quality or unfiltered instructions exhibited difficulties in following precise scientific commands.
+              <b>SFT on SciLitIns</b>: Our synthetic dataset SciLitIns effectively improves performance on both benchmarks.
+              <div class="content has-text-centered">
+                <img src="static/images/ablation2.png" alt="Impact of Instruction Dataset Quality" width="80%"/>
+                <p>Ablation study of SFT data recipes.</p>
+              </div>
             </li>
             <li>
-              <b>Influence of Data Volume</b>: Reducing the size of the training corpus by 50% during CPT led to a noticeable decrease in performance, demonstrating that a diverse and extensive scientific corpus is crucial for robust comprehension of domain-specific content.
+              <b>Influence of Instruction Filter</b>: Applying the filter improves the performance of SciLitLLM-7B on SciAssess (+0.8%) and SciRIFF (+0.5%). This shows that our proposed filter refines the quality of SciLitIns .
+              <div class="content has-text-centered">
+                <img src="static/images/ablation3.png" alt="Influence of Data Volume" width="80%"/>
+                <p>Ablation study of SFT instruction quality filtering.</p>
+              </div>
             </li>
           </ul>
-          <p>
-            The ablation study confirms that both the CPT and SFT stages are vital for SciLitLLM’s performance, with each component contributing significantly to the model’s capability to handle scientific tasks effectively.
-          </p>
-          <div class="content has-text-centered">
-            <img src="static/images/ablation_study.png" alt="Ablation Study Results" width="80%"/>
-            <p>
-              Results of the ablation study showcasing the performance drop when each component is removed or altered.
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -322,9 +325,7 @@
 
 
 
-
 <!--BibTex citation -->
-Blog Author: Jin Huang.
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
