@@ -234,14 +234,14 @@
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            SciLitLLM utilizes a <b>two-step pipeline</b> for enhancing domain-specific knowledge in LLMs.
+            SciLitLLM utilizes a <b>two-stage pipeline</b> for enhancing domain-specific knowledge in LLMs.
           </p>
           <ul>
             <li>
-              Continual Pre-Training (CPT): This step focuses on injecting domain-specific knowledge by pre-training on a curated scientific corpus. Over 73,000 textbooks and 625,000 research papers were processed and filtered to ensure high-quality data.
+              Stage 1, Continual Pre-Training (CPT): This step focuses on injecting domain-specific knowledge by pre-training on a curated scientific corpus. Over 73,000 textbooks and 625,000 research papers were processed and filtered to ensure high-quality data.
             </li>
             <li>
-              Supervised Fine-Tuning (SFT): To fine-tune the model's instruction-following abilities, a novel set of scientific instructions called <b>SciLitIns</b> was created. This dataset encompasses diverse scientific tasks, guiding the model in understanding and executing complex scientific tasks.
+              Stage 2, Supervised Fine-Tuning (SFT): To fine-tune the model's instruction-following abilities, a novel set of scientific instructions called <b>SciLitIns</b> was created. This dataset encompasses diverse scientific tasks, guiding the model in understanding and executing complex scientific tasks.
             </li>
           </ul>
           <div class="content has-text-centered">
@@ -250,6 +250,67 @@
           <!-- <p>
             The combination of CPT and SFT enhances SciLitLLM's ability to understand and process specialized scientific literature effectively, resulting in a model that outperforms general-purpose LLMs in domain-specific benchmarks.
           </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Stage 1: Scientific Knowledge Injection</h2>
+        <div class="content has-text-justified">
+          <p>
+            High-quality scientific textbooks and research papers provide a wealth of scientific knowledge. However, we face some practical challenges:
+          </p>
+          <ul>
+            <li>Formatting and Grammar Errors Introduced During PDF Parsing</li>
+            <li>Low-Information Segments, such as references and garbled text.</li>
+          </ul>
+          <h3 class="title is-4">Formatting and Grammar Correction</h3>
+          <p>
+            To address these challenges, we implemented the following modules:
+          </p>
+          <ul>
+            <li><b>Formatting and Grammar Correction</b>: We utilized the Llama3-8B model to correct errors introduced during the PDF parsing process.</li>
+            <li><b>CPT Quality Filtering</b>: Llama3-70B was used to score a subset of the texts. These scores were then used as labels to train a lightweight classifier for evaluating the quality of the training corpus.</li>
+          </ul>
+          <h3 class="title is-4">Corpus Quality Assessment</h3>
+          <div class="content has-text-centered">
+            <img src="static/images/corpus_example_v3.png" alt="Corpus Quality Assessment" width="80%"/>
+            <p> Examples of high and low-quality CPT text and SFT instructions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Stage 2: Scientific Instruction Fine-Tuning</h2>
+        <div class="content has-text-justified">
+          <p>
+            To address the scarcity of scientific instructions and the high costs associated with manual annotation, we developed a novel instruction generation and quality control process. 
+            This involved creating a probability table of domain-specific keywords and a list of scientific task descriptions. We then sampled keywords and tasks to generate a diverse dataset of domain-specific instructions.
+          </p>
+          <h3 class="title is-4">Synthetic Scientific Instruction Creation</h3>
+          <p>
+            To ensure the quality of the generated instructions, we introduced an Instruction Quality Control module:
+          </p>
+          <ul>
+            <li><b>Heuristic Deduplication</b>: We calculated the Levenshtein distance to filter out the top 20% of highly repetitive instructions, ensuring the diversity of the instruction set.</li>
+            <li><b>Model-Based Filtering</b>: We used Llama3-70B-Instruct to evaluate the generated instructions across five dimensions: clarity, complexity, correctness, usefulness, and adaptability. Instructions with an average score below 4 were excluded to maintain the quality of the instruction set.</li>
+          </ul>
+          <div class="content has-text-centered">
+            <img src="static/images/sft-scores.png" alt="Instruction Quality Control" width="80%"/>
+            <p> The quality assessment of SciLitIns.</p>
+          </div>
         </div>
       </div>
     </div>
