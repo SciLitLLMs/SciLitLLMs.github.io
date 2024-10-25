@@ -267,8 +267,8 @@
             High-quality scientific textbooks and research papers provide a wealth of scientific knowledge. However, we face some practical challenges:
           </p>
           <ul>
-            <li>Formatting and Grammar Errors Introduced During PDF Parsing</li>
-            <li>Low-Information Segments, such as references and garbled text.</li>
+            <li>Formatting and grammar errors introduced during PDF parsing.</li>
+            <li>Low-information Segments, such as references and garbled text.</li>
           </ul>
           <h3 class="title is-4">Formatting and Grammar Correction</h3>
           <p>
@@ -278,7 +278,6 @@
             <li><b>Formatting and Grammar Correction</b>: We utilized the Llama3-8B model to correct errors introduced during the PDF parsing process.</li>
             <li><b>CPT Quality Filtering</b>: Llama3-70B was used to score a subset of the texts. These scores were then used as labels to train a lightweight classifier for evaluating the quality of the training corpus.</li>
           </ul>
-          <h3 class="title is-4">Corpus Quality Assessment</h3>
           <div class="content has-text-centered">
             <img src="static/images/corpus_example_v3.png" alt="Corpus Quality Assessment" width="80%"/>
             <p> Examples of high and low-quality CPT text and SFT instructions.</p>
@@ -297,10 +296,11 @@
         <div class="content has-text-justified">
           <p>
             To address the scarcity of scientific instructions and the high costs associated with manual annotation, we developed a novel instruction generation and quality control process. 
-            This involved creating a probability table of domain-specific keywords and a list of scientific task descriptions. We then sampled keywords and tasks to generate a diverse dataset of domain-specific instructions.
-          </p>
-          <h3 class="title is-4">Synthetic Scientific Instruction Creation</h3>
-          <p>
+            This involved creating <b>a probability table of domain-specific keywords</b> and <b>a list of scientific task descriptions</b>. We then sampled keywords and tasks to generate a diverse dataset of domain-specific instructions by GPT-4o.
+            <div class="content has-text-centered">
+              <img src="static/images/scilitins_example.png" alt="Corpus Quality Assessment" width="80%"/>
+              <p> An Example in SciLitIns.</p>
+            </div>
             To ensure the quality of the generated instructions, we introduced an Instruction Quality Control module:
           </p>
           <ul>
